@@ -1,0 +1,293 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative; 
+}
+
+#MyImage{
+  display: table;
+  margin: 0 auto;
+  padding: 10px;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  border:  2px solid yellow;
+}
+#quoteHere{
+  text-align: center;
+    padding: 15px;
+    color: red;
+    font: 400 130px/0.8 'Cookie', Helvetica, sans-serif;
+    text-shadow: 4px 4px 3px rgba(0,0,0,0.1);
+    font-size: 50px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+#pCard{
+  height: 450px;
+  width: 400px;
+}
+#edu,#myhobs{
+    text-align: center;
+    padding: 15px;
+    color: red;
+    font: 400 130px/0.8 'Cookie', Helvetica, sans-serif;
+    text-shadow: 4px 4px 3px rgba(0,0,0,0.1);
+    font-size: 40px;
+    font-weight: bold;
+}
+#reach{
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    color: red;
+    font: 400 130px/0.8 'Cookie', Helvetica, sans-serif;
+    text-shadow: 4px 4px 3px rgba(0,0,0,0.1);
+    font-size: 80px;
+    font-weight: bold;
+}
+
+#pLinks{
+  font: 200 130px/0.8 'Great Vibes', Helvetica, sans-serif;
+  color: rgb(4, 119, 250);
+  text-shadow: 4px 4px 3px rgba(0,0,0,0.1); 
+  font-size: 30px;
+  letter-spacing: 1px;
+  text-align: center;
+  font-weight: bold;
+}
+#aboutImg{
+  height: 200px;
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#Home{
+  background-image: url('assets/travelagain.jpg');
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#Projects{
+  background-image: url('assets/questionmark.jpg');
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#Skillset{
+  background-image: url('assets/skills.png');
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#connectImg {
+  background-color: rgb(7, 7, 7);
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+#linksDiv{
+  background-color: #fff;
+  padding: 20px;
+  display: inline-block;
+  display: table;
+  border-radius: 50px;
+  margin:2% 18% 3% 18%;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#myemail{
+  text-align: center;
+    padding: 15px;
+    color: royalblue;
+    font: 400 130px/0.8 'Cookie', Helvetica, sans-serif;
+    text-shadow: 4px 4px 3px rgba(0,0,0,0.1);
+    font-size: 30px;
+    font-weight: bold;
+}
+#callme{
+  text-align: center;
+  margin-top: 10px;
+    padding: 10px;
+    color: red;
+    font: 400 130px/0.8 'Cookie', Helvetica, sans-serif;
+    text-shadow: 4px 4px 3px rgba(0,0,0,0.1);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#connectText {
+  background-color: rgb(46, 253, 5);
+  color: rgb(253, 252, 252);
+  font-size: 50px; 
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 10px;
+  width: 80%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+}
+
+.card{
+  display: inline-flex !important;
+  border: 1px solid yellow !important;
+  background-image: linear-gradient(#FFFFFF,#6DD5FA,#FFFFFF);
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.5);
+  margin: 20px;
+}
+.card:hover{
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+.card-text{
+  font: 400 100px/1.2 'Merienda One', Helvetica, sans-serif;
+  color: rgba(1, 18, 253, 0.7);
+  text-shadow: 3px 3px 3px #fff;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+#linkedInLink,#githubLink,#gmailLink{
+  height: 50px;
+  width: 50px;
+  margin: 45px;
+}
+
+#headerLink{
+    padding: 15px;
+    color: red;
+    font: 400 130px/0.8 'Cookie', Helvetica, sans-serif;
+    text-shadow: 4px 4px 3px rgba(0,0,0,0.1);
+    font-size: 40px;
+    font-weight: bold; 
+}
+
+#projectsCaption{
+    margin-top: 20px;
+    text-align: center;
+    padding: 15px;
+    color: royalblue;
+    font: 400 130px/0.8 'Cookie', Helvetica, sans-serif;
+    text-shadow: 4px 4px 3px rgba(0,0,0,0.1);
+    font-size: 60px;
+    font-weight: bold; 
+}
+#intro{
+  font: 400 100px/1.2 'Merienda One', Helvetica, sans-serif;
+  color: rgba(1, 18, 253, 0.7);
+  text-shadow: 3px 3px 3px #fff;
+  font-size: 35px;
+  text-align: center;
+  font-weight: bold;
+}
+.card-title{
+  font: 400 100px/1.0 'Just Another Hand', Helvetica, sans-serif;
+  color: #969595;
+  text-shadow: 0px 3px 0px #5e5e5e, 0px 5px 0px #4d4d4d, 0px 7px 0px #3c3c3c, 0px 9px 0px #2b2b2b, 3px 8px 15px rgba(0,0,0,0.1), 3px 8px 5px rgba(0,0,0,0.3);
+  font-size: 50px;
+  letter-spacing: 3px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#skillsCaption{
+  margin-top: 20px;
+  font: 400 130px/0.8 'Great Vibes', Helvetica, sans-serif;
+  color: rgb(172, 4, 250);
+  text-shadow: 4px 4px 3px rgba(0,0,0,0.1); 
+  font-size: 70px;
+  letter-spacing: 1px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#displayName{
+  font: 400 100px/1.5 'Pacifico', Helvetica, sans-serif;
+  color: #2b2b2b;
+  text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
+  font-size: 100px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#headerLink:hover{
+  background: #2196F3;
+  color: white;
+  border-radius: 8px;
+}
+
+#Home,#Projects,#Skillset,#About,#Contact{
+  height: 100vh;
+  padding-top:70px;
+  padding-bottom:70px;
+}
+
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-y: hidden;
+    transition: 0.5s;
+  }
+  
+  .overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+  }
+  
+  .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .overlay {overflow-y: auto;}
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+    }
+  }
+  

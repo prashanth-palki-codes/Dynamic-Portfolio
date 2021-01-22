@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="MyStyles.css">
+    <link rel="icon" href="assets/Profile.png">
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Just+Another+Hand' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
+          <span style="font-size:30px;cursor:pointer;margin-right: 20px;margin-left: 20px;" onclick="openNav()">&#9776;</span>              
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#Home" id="headerLink">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#Projects" id="headerLink">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#Skillset" id="headerLink">Skillset</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#About" id="headerLink">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#Contact" id="headerLink">Contact</a>
+              </li>
+            </ul>
+            <div id="myNav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlay-content">
+                    <a href="#Home" onclick="closeNav()">Home</a>
+                    <a href="#Projects" onclick="closeNav()">Projects</a>
+                    <a href="#Skillset" onclick="closeNav()">Skillset</a>
+                    <a href="#About" onclick="closeNav()">About</a>
+                    <a href="#Contact" onclick="closeNav()">Contact</a>
+                </div>
+            </div>
+            
+          </nav>
+          
+          <div id="Home">
+            <img src="assets/Profile.png" alt="" class="img-responsive center-block" id="MyImage"><br>
+            <p id="displayName"></p><br>
+            <p id="intro"></p><br>
+            <p id="quoteHere">
+              Passionate about web design. 
+              <br>
+              I design beautiful and easy to use online experiences.
+            </p>
+          </div>
+
+          <div id="Projects">
+            <h1 id="projectsCaption">Here are some of my projects</h1><br>
+            <div id="displayProjects"></div>
+          </div>
+          
+          <div id="Skillset">
+            <h1 id="skillsCaption">Here is my skillset</h1><br>
+            <div id="displaySkills"></div>
+          </div>  
+
+          <div id="About">
+            <img src="assets/about.jpg" id="aboutImg">
+            <div id="myEducation"></div>
+            <div id="hobbies"></div>
+          </div>     
+
+          <div id="Contact">
+            <div id="connectImg">
+              <div id="connectText">LET ME BUILD THE WEBSITE YOU NEED</div>
+            </div>
+          
+            <h1 id="reach">Reach out to me </h1>
+            
+            <div id="linksDiv">
+              <a href="mailto:prashanthpalki@gmail.com" target="_blank">
+                <img src="assets/gmail.png" id="gmailLink">
+              </a>
+              <a href="https://www.linkedin.com/in/palki-prashanth-091996181/" target="_blank">
+                <img src="assets/linkedin.png" id="linkedInLink">
+              </a>
+              <a href="https://github.com/prashanthpalki" target="_blank">
+                <img src="assets/github.png" id="githubLink">
+              </a><br>
+
+              <div id="myemail"></div>
+              <div id="callme"></div>
+
+            </div>
+
+          </div>          
+    </div>
+
+    <script>
+        var url="https://prashanth-dynamic-portfolio.herokuapp.com/"
+
+        let MyName="";
+        var mobile;
+        var i=0;
+        var textspeed=250;
+
+        function getData(){
+            fetch(url+"getDetails")
+                .then(resp=>{return resp.json()})
+                .then(result=>{
+                    let myData=result.data[0]
+                    displayIntro(myData.intro)
+                    MyName=myData.contactInfo.name
+                    mobile=myData.contactInfo.mobile
+                    email=myData.contactInfo.email
+                    typeWriter()
+                    displayAbout(myData.educationDetails.clgPercentage,myData.educationDetails.clgYOP,myData.educationDetails.clgBranchName,myData.hobbies,mobile,email)
+                    myData.projects.forEach(element => {
+                      displayMyProjects(element.projectTitle,element.projectGithubURL,element.projectHostedURL,element.projectTech);
+                    });
+                    myData.skills.forEach(element => {
+                      displayMySkills(element.skill,element.rating);
+                    });
+                })
+        }
+        getData();
+        
+        function displayIntro(intro){
+            document.getElementById('intro').innerHTML=intro;
+        }
+
+        function displayAbout(clgPercent,clgYOP,clgBranchName,hobbies,mobile,email){
+          document.getElementById('callme').innerHTML= "CALL ME @ " + mobile
+          document.getElementById('myemail').innerHTML= "Mail ID : " + email
+          document.getElementById('myEducation').innerHTML+=`
+                <div>
+                  <h5 id="edu"><b style="color:royalblue;font-size:60px"><u>Education Details : </u></b></h5><br>
+                  <h5 id="edu"><b style="color:green;font-size:50px">${clgBranchName} </b> Graduate with impeccable <b style="color:green">${clgPercent}%</b></h5>
+                  <p id="edu">${clgYOP} Passed Out</p>
+                </div>
+          `
+          document.getElementById('hobbies').innerHTML=`
+              <div>
+                  <h5 id="myhobs"><b style="color:orange;font-size:60px"><u>Love for </u></b><span style='font-size:50px;color:red;'>&#9829;</span> :</h5>
+                  <p id="myhobs" style="color:black">${hobbies}</p>
+              </div>
+          `
+        }
+
+        function displayMySkills(skill,rating){
+          var display=document.getElementById('displaySkills')
+          display.innerHTML+=`
+              <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">${skill}</h5><br>
+                    <p class="card-text text-danger"><b>Rating : ${rating}/10 </b></p>
+                  </div>
+              </div>
+          `   
+        }
+
+        function displayMyProjects(title,git,hosted,techs){
+          var display1=document.getElementById('displayProjects')
+          display1.innerHTML+=`
+                <div class="card" style="width: 18rem;" id="pCard">
+                    <div class="card-body">
+                      <h5 class="card-title">${title}</h5><br>
+                      <p class="card-text text-danger"><b style="color:green">Technologies Used : </b><br><br>${techs}</p><br>
+                      <a href="${git}" target="_blank" id="pLinks">See code on Github</a><br><br><br>
+                      <a href="${hosted}" target="_blank" id="pLinks">Visit project</a><br>
+                    </div>
+                </div>
+          `   
+        }
+
+        function typeWriter() {
+          if (i < MyName.length) {
+            document.getElementById("displayName").innerHTML += MyName.charAt(i);
+            i++;
+            setTimeout(typeWriter, textspeed);
+          }
+        }
+
+        function openNav() {
+          document.getElementById("myNav").style.height = "100%";
+        }
+        
+        function closeNav() {
+          document.getElementById("myNav").style.height = "0%";
+        }
+    </script>
+</body>
+</html>

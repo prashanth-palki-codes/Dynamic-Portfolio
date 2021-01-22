@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/ProfileEdit.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+    <div id="snackbar">Some text here</div>
+
+    <div class="container mt-5 mb-5">
+        <h1 id="title">Design your Portfolio here</h1><br><br>
+        <div class="form-group" id="introForm">
+            <h2>Intro</h2>
+            <input type="text" class="form-control" id="intro" placeholder="Give a small intro about yourself"><br>
+            <button class="btn btn-success" id="addIntroBtn" onclick="addIntro()">Submit</button>
+        </div><br><br>
+
+        <div class="form-group" id="educationForm">
+            <h2>Education Details</h2><br>
+            <h4>Schooling - 10th</h4>
+            <input type="text" id="schoolName" class="form-control" placeholder="Enter your School Name"><br>
+            <input type="number" id="schoolPercentage" class="form-control" placeholder="Enter your score as Percentage"><br>
+            <input type="number" id="schoolYOP" class="form-control" placeholder="Year of Passing"><br>
+
+            <h4>PUC / Intermediate / 12th</h4>
+            <input type="text" id="PUCName" class="form-control" placeholder="Enter your College Name"><br>
+            <input type="number" id="PUCPercentage" class="form-control" placeholder="Enter your score as Percentage"><br>
+            <input type="number" id="PUCYOP" class="form-control" placeholder="Year of Passing"><br>
+
+            <h4>DIPLOMA / B.TECH</h4>
+            <input type="text" id="clgName" class="form-control" placeholder="Enter your College Name"><br>
+            <input type="text" id="clgCourseName" class="form-control" placeholder="Enter your Course Name"><br>
+            <input type="text" id="clgBranchName" class="form-control" placeholder="Enter your Branch Name"><br>
+            <input type="number" id="clgPercentage" class="form-control" placeholder="Enter your score as Percentage"><br>
+            <input type="number" id="clgYOP" class="form-control" placeholder="Year of Passing"><br>
+
+            <button class="btn btn-success" id="addEducationBtn" onclick="addEducationDetails()">Submit</button>
+        </div><br><br>
+
+        <div class="form-group" id="skillsForm">
+            <h2>Describe your skillset here</h2><br>
+            <h6 class="text-danger">( Once you add a skill, clear the fields and add another skill )</h6><br>
+
+            <input type="text" class="form-control" id="skill" placeholder="Skill name here"><br>
+            <input type="number" class="form-control" id="skillRating" placeholder="Rate your skill on a scale of 1 to 10"><br>
+            <button class="btn btn-primary" id="addSkill" onclick="addSkill()">Add skill</button>
+        </div><br><br>
+
+        <div class="form-group" id="projectsForm">
+            <h2>Add your projects here</h2><br>
+            <h6 class="text-danger">( Once you add a project, clear the fields and add another project )</h6><br>
+
+            <input type="text" id="projectTitle" class="form-control" placeholder="Enter your project title"><br>
+            <input type="text" id="projectGithubURL" class="form-control" placeholder="Give your project Github URL here"><br>
+            <input type="text" id="projectHostedURL" class="form-control" placeholder="Give your project Hosted URL here"><br>
+            <input type="text" id="projectTech" class="form-control" placeholder="Technologies used in the project"><br>
+            <button class="btn btn-success" id="addProjectBtn" onclick="addProject()">Add this Project</button>
+        </div><br><br>
+
+        <div class="form-group" id="hobbiesForm">
+            <h2>Give us an insight into your hobbies</h2>
+            <input type="text" class="form-control" id="hobbies" placeholder="Enter your hobbies here"><br>
+            <button class="btn btn-success" id="addHobbiesBtn" onclick="addHobbies()">Submit</button>
+        </div><br><br>
+
+        <div class="form-group" id="personalInfoForm">
+            <h2>Tell us how recruiters can reach you</h2>
+            <input type="text" class="form-control" id="name" placeholder="Enter your Name"><br>
+            <input type="email" class="form-control" id="email" placeholder="Enter your Email"><br>    
+            <input type="tel" class="form-control" id="mobile" placeholder="Enter your Mobile Number"><br>
+            <input type="text" class="form-control" id="linkedInLink" placeholder="Paste your Linkedin Link here"><br>
+            <input type="text" class="form-control" id="githubLink" placeholder="Paste your Github Link here"><br>
+            <button class="btn btn-primary" id="personalInfoBtn" onclick="addContactDetails()">Submit</button>     
+        </div><br><br><br>
+        
+        <button class="btn btn-danger" id="portfolioBtn" onclick="createMyPortfolio()">Create my Portfolio</button>
+    </div>
+    
+    <script>
+        var url="https://prashanth-dynamic-portfolio.herokuapp.com/"
+
+        var allChecked=0
+
+        function addIntro(){
+            var intro=document.getElementById('intro').value
+            if(intro!==""){
+                fetch(url+"addIntro",{
+                    method:"PUT",
+                    headers:{
+                        'Content-type':'application/json'
+                    },
+                        body:JSON.stringify({intro})
+                })
+                allChecked=allChecked+1
+                snackBarSuccessFunction()
+            }
+            else
+            snackBarFailureFunction()
+        }
+
+        function addHobbies(){
+            var hobbies=document.getElementById('hobbies').value
+            if(hobbies!==""){
+                fetch(url+"addHobbies",{
+                    method:"PUT",
+                    headers:{
+                        'Content-type':'application/json'
+                    },
+                        body:JSON.stringify({hobbies})
+                })
+                allChecked=allChecked+1
+                snackBarSuccessFunction()
+            }
+            else
+            snackBarFailureFunction()
+        }
+
+        function addEducationDetails(){
+            var schoolName=document.getElementById('schoolName').value
+            var schoolPercentage=document.getElementById('schoolPercentage').value
+            var schoolYOP=document.getElementById('schoolYOP').value
+            var PUCName=document.getElementById('PUCName').value
+            var PUCPercentage=document.getElementById('PUCPercentage').value
+            var PUCYOP=document.getElementById('PUCYOP').value
+            var clgName=document.getElementById('clgName').value
+            var clgCourseName=document.getElementById('clgCourseName').value
+            var clgBranchName=document.getElementById('clgBranchName').value
+            var clgPercentage=document.getElementById('clgPercentage').value
+            var clgYOP=document.getElementById('clgYOP').value
+            if(schoolName!=="" && schoolPercentage!=="" && schoolYOP!=="" && PUCName!=="" && PUCPercentage!=="" &&
+                PUCYOP!=="" && clgName!=="" && clgPercentage!=="" && clgYOP!=="" && clgCourseName!=="" && clgBranchName!=="")
+                {
+                    var educationDetails={
+                        "schoolName": schoolName,
+                        "schoolPercentage" : schoolPercentage,
+                        "schoolYOP" : schoolYOP,
+                        "PUCName" : PUCName,
+                        "PUCPercentage" : PUCPercentage,
+                        "PUCYOP" : PUCYOP,
+                        "clgName" : clgName,
+                        "clgCourseName" : clgCourseName,
+                        "clgBranchName" : clgBranchName,
+                        "clgPercentage" : clgPercentage,
+                        "clgYOP" : clgYOP
+                    }
+
+                    fetch(url+"addQualifications",{
+                        method:"PUT",
+                        headers:{
+                            'Content-type':'application/json'
+                        },
+                            body:JSON.stringify({educationDetails})
+                    })
+                    allChecked=allChecked+1
+                    snackBarSuccessFunction()
+                }
+                else
+                    snackBarFailureFunction()
+        }
+
+        function addSkill(){
+            var skill=document.getElementById('skill').value
+            var skillRating=document.getElementById('skillRating').value
+            if(skill!=="" && skillRating!==""){
+                fetch(url+"addSkill",{
+                    method:"PUT",
+                    headers:{
+                        'Content-type':'application/json'
+                    },
+                    body:JSON.stringify({
+                        "skill" : skill,
+                        "skillRating" : skillRating 
+                    })
+                })
+                allChecked=allChecked+1
+                snackBarSuccessFunction()
+            }
+            else{
+                snackBarFailureFunction()
+            }
+        }
+
+        function addProject(){
+            var projectTitle=document.getElementById('projectTitle').value
+            var projectGithubURL=document.getElementById('projectGithubURL').value
+            var projectHostedURL=document.getElementById('projectHostedURL').value
+            var projectTech=document.getElementById('projectTech').value
+
+            if(projectGithubURL!=="" && projectHostedURL!=="" && projectHostedURL!=="" && projectTech!==""){
+                fetch(url+"addProject",{
+                    method:"PUT",
+                    headers:{
+                        'Content-type':'application/json'
+                    },
+                        body:JSON.stringify({
+                            "projectTitle" : projectTitle,
+                            "projectGithubURL" : projectGithubURL,
+                            "projectHostedURL" : projectHostedURL,
+                            "projectTech" : projectTech
+                        })
+                })
+                allChecked=allChecked+1
+                snackBarSuccessFunction()
+            }
+            else{
+                snackBarFailureFunction()
+            }
+        }
+
+        function addContactDetails(){
+            var name=document.getElementById('name').value
+            var email=document.getElementById('email').value
+            var mobile=document.getElementById('mobile').value
+            var linkedInLink=document.getElementById('linkedInLink').value
+            var githubLink=document.getElementById('githubLink').value
+
+            var newContactInfo={
+                "name" : name,
+                "email" : email,
+                "mobile" : mobile,
+                "linkedInLink" : linkedInLink,
+                "githubLink" : githubLink
+            }
+
+            if(name!=="" && email!=="" && mobile!=="" && linkedInLink!=="" && githubLink!==""){
+                fetch(url+"addContactInfo",{
+                    method:"PUT",
+                    headers:{
+                        'Content-type':'application/json'
+                    },
+                        body:JSON.stringify({newContactInfo})
+                })
+                allChecked=allChecked+1
+                snackBarSuccessFunction()
+            }
+            else
+                snackBarFailureFunction()
+        }
+
+        function createMyPortfolio(){
+            if(allChecked>=1){
+                window.location="portfolio.html"
+            }
+            else{
+                console.log(allChecked)
+                snackBarFailureFunction()
+            }
+        }
+        
+        function snackBarSuccessFunction() {
+            var x = document.getElementById("snackbar");
+            x.setAttribute("style",'background-color:green')
+            x.innerHTML="Success...!!!"
+            x.className = "show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        }
+        function snackBarFailureFunction() {
+            var x = document.getElementById("snackbar");
+            x.setAttribute("style",'background-color:red')
+            x.innerHTML="Please fill in all the details...!!!"
+            x.className = "show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        }
+    </script>
+</body>
+</html>
